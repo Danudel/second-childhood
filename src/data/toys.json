@@ -1,0 +1,102 @@
+
+
+[
+
+    {
+        "id" : 1,
+        "userId": 1,
+        "name": " גיטרת כלב מנגנת ונובחת",
+        "img": "https://target.scene7.com/is/image/Target/GUEST_232d799d-9299-4a87-b384-31f14eb1c4dc?wid=488&hei=488&fmt=pjpeg",
+        "price": 120,
+        "free": false,
+        "category": 3,
+        "sesc": "גיטרה שמשמיעה קולות גיטרה קלאסית, גיטרה חשמלית וקולות נביחה על פי ניגון חופשי או מנגינות מובנות, לרוב קלאסיקות רוק",
+        "sold": false
+
+    },
+
+    {
+        "id": 2,
+        "userId": 1,
+        "name": "מכונת קפה לילדים מעץ",
+        "img": "https://s1.thcdn.com///productimg/1600/1600/12670133-1614795296552597.jpg",
+        "price": 80,
+        "free": false,
+        "category": 5,
+        "sesc": "מכונת קפה של חברת הייפ, מושלמת למשחקי דמיון במטבח, במצב מעולה",
+        "sold": false
+    },
+
+        {
+            "id": 3,
+            "userId": 1,
+            "name": "פאזל מערכת השמש",
+            "img": "https://momme.co.il/wp-content/uploads/2020/10/58382266_2.jpg",
+            "price": 30,
+            "free": false,
+            "category": 2,
+            "sesc": "פאזל במצב מעולה ללא חלקים חסרים, היה בשימוש מועט. מכיל 100 חלקים",
+            "sold": false
+        },
+
+        {
+            "id": 4,
+            "userId": 1,
+            "name": "משחק הרכבה מגנטים",
+            "img": "https://www.mekupelet.co.il/wp-content/uploads/2020/10/703010_large.jpg",
+            "price": 230,
+            "free": false,
+            "category": 2,
+            "sesc": "בני בניה אשר משיכתם המגנטית מכל הצדדים, גם כאשר מסובבים אותם. הילדים יכולים לבנות צורות שונות כמו קוביות, בתים, מכוניות, מטוסים ועוד.",
+            "sold": false
+        },
+
+        {
+            "id": 5,
+            "userId": 1,
+            "name": "ערכה לטיפול בבעלי חיים",
+            "img": "https://www.mekupelet.co.il/wp-content/uploads/2020/11/%D7%A2%D7%A8%D7%9B%D7%94-%D7%9C%D7%98%D7%99%D7%A4%D7%95%D7%9C-%D7%95%D7%98%D7%99%D7%A4%D7%95%D7%97-%D7%97%D7%99%D7%95%D7%AA-%D7%9E%D7%97%D7%9E%D7%93-%D7%9E%D7%9C%D7%99%D7%A1%D7%94-%D7%95%D7%93%D7%90%D7%921.jpg",
+            "price": 230,
+            "free": false,
+            "category": 5,
+            "sesc": "ערכה לטיפול וטיפוח חיות מחמד מליסה ודאג.",
+            "sold": false
+        },
+
+        {
+            "id": 6,
+            "userId": 1,
+            "name": "בובת תינוק",
+            "img": "https://www.mekupelet.co.il/wp-content/uploads/2020/08/%D7%91%D7%95%D7%91%D7%94-%D7%90%D7%9C%D7%9E%D7%95-%D7%9B%D7%95%D7%91%D7%A2-%D7%9B%D7%97%D7%95%D7%9C-510x600.jpg",
+            "price": 60,
+            "free": false,
+            "category": 5,
+            "sesc": "הבובות מהוות מודל יופי והזדהות ומאפשרות להשתעשע במשחקי תפקידים. בובה זו עם גוף קשה וניתן לרחוץ באמבטיה.",
+            "sold": false
+        },
+
+        {
+            "id": 7,
+            "userId": 1,
+            "name": "האי הנעלם",
+            "img": "https://www.mekupelet.co.il/wp-content/uploads/2018/10/%D7%94%D7%A0%D7%A2%D7%9C%D7%9D.jpg",
+            "price": 100,
+            "free": false,
+            "category": 6,
+            "sesc": "משחק קופסא למציאת אוצרות באי שעומד לטבוע, משחק שמאפשר שיתוף פעולה בין השחקנים. לגילאי 10 ומעלה",
+            "sold": false
+        },
+
+
+        {
+            "id": 8,
+            "userId": 1,
+            "name": "הטירה",
+            "img": "https://piratz.co.il/wp-content/uploads/2020/04/SG030.png",
+            "price": 75,
+            "free": false,
+            "category": 6,
+            "sesc": "משחק אסטרטגיה",
+            "sold": false
+        }
+]
