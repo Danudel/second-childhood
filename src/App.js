@@ -5,12 +5,17 @@ import { HashRouter, Route, Switch } from "react-router-dom";
 import { Container } from 'react-bootstrap';
 
 import HomePage from './pages/HomePage';
-import ToysPage from './pages/HomePage';
-import LoginPage from './pages/HomePage';
-import SignupPage from './pages/HomePage';
-import DashboardPage from './pages/HomePage';
-import SearchByLocationPage from './pages/HomePage';
+import ToysPage from './pages/ToysPage';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
+import DashboardPage from './pages/DashboardPage';
+import SearchByLocationPage from './pages/SearchByLocationPage';
 import AppNavBar from './components/AppNavBar';
+import ToyDetails from './components/ToyDetails';
+
+import toysJSON from './data/toys.json';
+import usersJSON from './data/users.json';
+
 
 
 
@@ -19,15 +24,21 @@ class App extends React.Component {
   
   constructor(props) {
     super(props);
+
+     
+
+
     this.state = {
       //  activeUser: null,
+
       activeUser: {
         "id": 1,
         "fname": "דנה",
         "lname": "נודל",
         "email": "danamula@gmail.com",
         "pwd": "123"
-      }
+      },
+      allToys: toysJSON
     }
   }
 
@@ -42,19 +53,19 @@ class App extends React.Component {
   render() {
   return (
     <HashRouter>
-      {/* <Route exact path={['/', '/toys', '/dashboard', '/location', '/signup']}>
-        <AppNavBar handleLogout={this.handleLogout} activeUser="this.state.activeUser"/>
-      </Route> */}
+      <Route exact path={['/', '/toys', '/dashboard', '/location', '/signup']}>
+        <AppNavBar handleLogout={this.handleLogout} activeUser={this.state.activeUser}/>
+      </Route>
 
-      {/* <Container>
-        <Switch> */}
+      <Container>
+        <Switch>
 
           <Route exact path="/toys">
-            <ToysPage />
+            <ToysPage allToys={this.state.allToys}/>
           </Route>
 
           <Route exact path="/login">
-            <LoginPage />
+            <LoginPage allUsers={usersJSON} handleLogin={this.handleLogin} />
           </Route>
 
           <Route exact path="/signup">
@@ -68,13 +79,17 @@ class App extends React.Component {
           <Route exact path="/location">
             <SearchByLocationPage />
           </Route>
-{/* 
+
+          <Route exact path="/toys/:id">
+            <ToyDetails allUsers={usersJSON} toys= {this.state.allToys}/>
+          </Route>
+
           <Route exact path="/">
             <HomePage />
-          </Route> */}
-{/* 
+          </Route>
+
         </Switch>
-       </Container> */}
+       </Container>
 
     </HashRouter>
   );

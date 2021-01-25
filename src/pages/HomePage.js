@@ -1,14 +1,16 @@
 
 import React from 'react';
-
+import './HomePage.css';
 
 
 
 class HomePage extends React.Component {
     render() {
         return (
-            
-            <div>Home!!! Page</div>
+             <div>
+                <img src="https://perfit.co.il/wp-content/uploads/2019/01/3-1.png"></img>
+                <h2> צעצועים אחרונים שהועלו: </h2>
+            </div>
         )
     }
 }
