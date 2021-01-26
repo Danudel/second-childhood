@@ -2,6 +2,18 @@
     width: 75%;
 }
 
+h1{
+    padding-top: 30px;
+    font-family: 'Suez One', serif;
+
+}
+
 .mainCard{
-    
+width: 800px;
+height:800px;
+border-radius: 30;
+}
+
+.detailsCard{
+    background-color: lightgray;
 }

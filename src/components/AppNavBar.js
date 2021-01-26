@@ -13,7 +13,7 @@ const AppNavBar = function(props) {
     return (
         
         <Navbar className="justify-content-right" bg="light" expand="lg">
-            <Navbar.Brand href="/">ילדותי השניה</Navbar.Brand>
+            <Navbar.Brand className="logo" href="/">ילדותי השניה</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav >

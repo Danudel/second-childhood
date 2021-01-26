@@ -1,7 +1,7 @@
 import React from 'react';
 import './ToyDetails.css';
 
-import { Card, Jumbotron, ListGroup, ListGroupItem, Row,  } from 'react-bootstrap';
+import { Card, Col, Jumbotron, ListGroup, ListGroupItem, Row,  } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 
 
@@ -18,27 +18,31 @@ const ToyDetails = function (props) {
 
 
     return (
-        <Row>
-        <Card className="mainCard">
-            <Card.Title style={{fontWeight: "bold"}}>{selectedToy.name}</Card.Title>
-            <Card.Img className="imgStyle" variant="top" src={selectedToy.img} />
-                <Card.Text>{selectedToy.sesc}</Card.Text>
-                 <Card.Text>מחיר: {selectedToy.price} ש"ח</Card.Text>
+        <div>
+            <h1 style={{ fontWeight: "bold" }}>{selectedToy.name}</h1>
+            <Row>
+                <Col xs={12} sm={12} md={9} lg={9} >
+                <Card  className="mainCard">
+                <Card.Img className="imgStyle" variant="top" src={selectedToy.img} />
+                    <Card.Text>{selectedToy.sesc}</Card.Text>
+                    <Card.Text>מחיר: {selectedToy.price} ש"ח</Card.Text>
+                </Card>
+               </Col>
 
-        </Card>
+                <Col sm={3}>
+                    <Card className="detailsCard">
+                    <ListGroupItem > שם המוכר/ת: {seller[0].fname} {seller[0].lname}</ListGroupItem>
+                    <ListGroup  className="list-group-flush" >
+                            <ListGroupItem className="detailsCard">נקודת איסוף: {seller[0].adress} </ListGroupItem>
+                        <ListGroupItem>יצירת קשר: </ListGroupItem>
+                            <ListGroupItem className="detailsCard"> {seller[0].phone} </ListGroupItem>
+                            <ListGroupItem className="detailsCard"> {seller[0].email} </ListGroupItem>
+                    </ListGroup>
+            </Card>
+            </Col>
 
-
-        <Card>
-                <ListGroupItem> שם המוכר/ת: {seller[0].fname} {seller[0].lname}</ListGroupItem>
-                <ListGroup className="list-group-flush">
-                    <ListGroupItem>נקודות איסוף: {seller[0].adress} </ListGroupItem>
-                    <ListGroupItem>יצירת קשר: </ListGroupItem>
-                    <ListGroupItem> {seller[0].phone} </ListGroupItem>
-                    <ListGroupItem> {seller[0].email} </ListGroupItem>
-                </ListGroup>
-        </Card>
-
-        </Row>
+            </Row>
+        </div>
     )
 }
 export default ToyDetails;
