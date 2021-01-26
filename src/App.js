@@ -42,6 +42,13 @@ class App extends React.Component {
     }
   }
 
+  addToy = (newToy) => {
+    this.setState({ allToys: this.state.allToys.concat(newToy) });
+    localStorage.setItem('localToys', JSON.stringify(
+      this.state.allToys.concat(newToy)
+    ))
+  } 
+
 
   handleLogin = (userObj) => {
     this.setState({ activeUser: userObj })
@@ -73,7 +80,7 @@ class App extends React.Component {
           </Route>
 
           <Route exact path="/dashboard">
-            <DashboardPage />
+            <DashboardPage addToy={this.addToy} activeUser={this.state.activeUser} allToys={this.state.allToys}/>
           </Route>
 
           <Route exact path="/location">
