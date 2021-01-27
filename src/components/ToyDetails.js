@@ -1,7 +1,7 @@
 import React from 'react';
 import './ToyDetails.css';
 
-import { Card, Col, Jumbotron, ListGroup, ListGroupItem, Row,  } from 'react-bootstrap';
+import { Card, Col, ListGroup, ListGroupItem, Row,  } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 
 

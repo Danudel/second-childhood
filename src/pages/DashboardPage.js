@@ -22,6 +22,8 @@ class DashboardPage extends React.Component {
             isModalActive: false,
         }
     }
+
+
     openModal = () => {
         this.setState({ isModalActive: true });
     }

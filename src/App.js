@@ -60,7 +60,7 @@ class App extends React.Component {
   render() {
   return (
     <HashRouter>
-      <Route exact path={['/', '/toys', '/dashboard', '/location', '/signup']}>
+      <Route exact path={['/', '/toys', '/dashboard', '/location', '/signup', "/toys/:id"]}>
         <AppNavBar handleLogout={this.handleLogout} activeUser={this.state.activeUser}/>
       </Route>
 
@@ -92,7 +92,7 @@ class App extends React.Component {
           </Route>
 
           <Route exact path="/">
-            <HomePage />
+            <HomePage allToys={this.state.allToys}/>
           </Route>
 
         </Switch>

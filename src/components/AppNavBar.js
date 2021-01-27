@@ -22,7 +22,7 @@ const AppNavBar = function(props) {
                         <NavDropdown.Item href="/#/signup">עריכת פרטים אישיים</NavDropdown.Item>
                         <NavDropdown.Item href="/#/dashboard">פריטים שהעלתי</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">העלאת פריט חדש</NavDropdown.Item>
+                        <NavDropdown.Item href="/#/dashboard">העלאת פריט חדש</NavDropdown.Item>
                 </NavDropdown>
             </Nav>
             </Navbar.Collapse>
