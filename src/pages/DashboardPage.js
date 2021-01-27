@@ -83,7 +83,7 @@ class DashboardPage extends React.Component {
                     {userToys}
                 </Row>
 
-                <Modal show={this.state.isModalActive} onHide={() => { }}>
+                <Modal style={{textAlign: "right"}} show={this.state.isModalActive} onHide={() => { }}>
                     <Modal.Header closeButton onClick={this.closeModal}>
                         <Modal.Title>הוספת פריט חדש למכירה</Modal.Title>
                     </Modal.Header>
@@ -123,6 +123,10 @@ class DashboardPage extends React.Component {
                                 <option value="2">משחקי דמיון </option>
                                 <option value="2"> משחקי קופסא</option>
                             </Form.Control>
+                            
+                            
+                            <Form.Check type="checkbox" label="סימון כנמכר" />
+                            <Button size="sm" variant="outline-dark">מחיקת פריט</Button>
 
                         </Form>
                     </Modal.Body>

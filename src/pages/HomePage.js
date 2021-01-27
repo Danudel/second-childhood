@@ -45,7 +45,7 @@ class HomePage extends React.Component {
 
         return (
              <div>
-                <img className="mainImg" src="https://perfit.co.il/wp-content/uploads/2019/01/3-1.png"></img>
+                <img className="mainImg" src="https://perfit.co.il/wp-content/uploads/2019/01/3-1.png" />
                 <h2> צעצועים אחרונים שהועלו: </h2>
                 <CardDeck>
                 {toyContent}

@@ -9,6 +9,14 @@ const AppNavBar = function(props) {
     const loginEl = (!activeUser) ? <Nav.Link href="/#/login">כניסה</Nav.Link> : null;
     const signupEl = (!activeUser) ? <Nav.Link href="/#/signup">הרשמה</Nav.Link> : null;
     const logoutEl = (activeUser) ? <Nav.Link onClick={handleLogout}>יציאה</Nav.Link> : null;
+    const personalEl = (activeUser) ? 
+                                    <NavDropdown title="איזור אישי" id="basic-nav-dropdown">
+                                        <NavDropdown.Item href="/#/signup">עריכת פרטים אישיים</NavDropdown.Item>
+                                        <NavDropdown.Item href="/#/dashboard">פריטים שהעלתי</NavDropdown.Item>
+                                        <NavDropdown.Divider />
+                                        <NavDropdown.Item href="/#/dashboard">העלאת פריט חדש</NavDropdown.Item>
+                                    </NavDropdown>
+                                : null;
 
     return (
         
@@ -18,12 +26,7 @@ const AppNavBar = function(props) {
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav >
                 <Nav.Link  href="/#/toys">צעצועים</Nav.Link>
-                <NavDropdown  title="איזור אישי" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="/#/signup">עריכת פרטים אישיים</NavDropdown.Item>
-                        <NavDropdown.Item href="/#/dashboard">פריטים שהעלתי</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="/#/dashboard">העלאת פריט חדש</NavDropdown.Item>
-                </NavDropdown>
+                {personalEl}
             </Nav>
             </Navbar.Collapse>
            

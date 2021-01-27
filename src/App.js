@@ -38,7 +38,8 @@ class App extends React.Component {
         "email": "danamula@gmail.com",
         "pwd": "123"
       },
-      allToys: toysJSON
+      allToys: toysJSON,
+      allUsers: usersJSON
     }
   }
 
@@ -49,6 +50,12 @@ class App extends React.Component {
     ))
   } 
 
+  addUser = (newUser) => {
+    this.setState({ allUsers: this.state.allUsers.concat(newUser) });
+    localStorage.setItem('localUsers', JSON.stringify(
+      this.state.allUsers.concat(newUser)
+    ))
+  } 
 
   handleLogin = (userObj) => {
     this.setState({ activeUser: userObj })
@@ -76,7 +83,7 @@ class App extends React.Component {
           </Route>
 
           <Route exact path="/signup">
-            <SignupPage />
+            <SignupPage handleLogin={this.handleLogin} allUsers={usersJSON} addUser={this.addUser}/>
           </Route>
 
           <Route exact path="/dashboard">

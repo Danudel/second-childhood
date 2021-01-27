@@ -20,7 +20,7 @@ class LoginPage extends React.Component {
     validateLogin = () => {
         const users= this.props.allUsers;
         for (let i = 0; i < users.length; i++) {
-            if (users[i].pwd == this.state.pwd && users[i].email == this.state.email) {
+            if (users[i].pwd === this.state.pwd && users[i].email === this.state.email) {
                 this.props.handleLogin(users[i]);
                 window.location.href = '/#/dashboard'
                 return;

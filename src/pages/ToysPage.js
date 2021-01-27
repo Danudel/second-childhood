@@ -17,6 +17,8 @@ class ToysPage extends React.Component {
             allCategories: categoryJSON,
             activeFilter: []
         }
+
+        this.onFilterChange= this.onFilterChange.bind(this);
     }
     
     navigateToToy = (event) => {
@@ -25,35 +27,50 @@ class ToysPage extends React.Component {
         })
     }
 
-    // onFilterChange(filter) {
-    //     const { activeFilter } = this.state;
-    //     const toysList = this.props.allToys;
-        
-    //     if (activeFilter.length === 6) { //there are 6 toys categories. if all of them are checked- delete the filter array
-    //         this.setState({ activeFilter: [] });
-    //     } else {
-    //         this.setState({ activeFilter: toysList.map(filter => filter.value) });  
-    //     }
+    onFilterChange(event) {
+        const { activeFilter, allCategories } = this.state;
+        const toysList = this.props.allToys;
+        const value = parseInt(event.target.value)
+        if (activeFilter.includes(value)){
+            this.setState({ activeFilter: activeFilter.filter((item)=> {
+                return (item != value)
+            }) 
+        })
+       
+        }
 
-        
-    // }
+        else {
+            this.setState({
+                activeFilter: [...activeFilter, value]
+                                    
+            })
+        }
+    }
 
 
     render() {
         const toyContent= [];
         for (let i=0; i<this.props.allToys.length; i++){
-            const toysCard =
-            <Col sm={12} md={4} style={{ padding: '25px' }}>
-                    <Card className="card" >
-                        <Card.Img className="toyImg" variant="top" src={this.props.allToys[i].img} />
-                        <Card.Body>
-                            <Card.Title>{this.props.allToys[i].name}</Card.Title>
-                            <Card.Text>  מחיר: {this.props.allToys[i].price} ש"ח</Card.Text>
-                            <Button variant="outline-dark" data-index={i} onClick={this.navigateToToy} >לפרטים נוספים</Button>
-                        </Card.Body>
-                    </Card>
-            </Col>
-            toyContent.push(toysCard);
+            console.log(this.state.activeFilter)
+            if (this.state.activeFilter.length==0 || this.state.activeFilter.includes(this.props.allToys[i].category)){
+                console.log(1);
+                const toysCard =
+                    <Col sm={12} md={4} style={{ padding: '25px' }}>
+                        <Card className="card" >
+                            <Card.Img className="toyImg" variant="top" src={this.props.allToys[i].img} />
+                            <Card.Body>
+                                <Card.Title>{this.props.allToys[i].name}</Card.Title>
+                                <Card.Text>  מחיר: {this.props.allToys[i].price} ש"ח</Card.Text>
+                                <Button variant="outline-dark" data-index={i} onClick={this.navigateToToy} >לפרטים נוספים</Button>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                toyContent.push(toysCard);
+            }
+                 
+                
+            
+
         }
 
         if (this.state.redirectIndex > -1) {
@@ -70,12 +87,12 @@ class ToysPage extends React.Component {
                   <Form> 
 
                     <Form.Group>
-                        <Form.Check onClick={() => this.onFilterChange(1)} inline label=" צעצועי התפתחות " />
-                        <Form.Check inline label=" צעצועי הרכבה " />
-                        <Form.Check inline label=" כלי נגינה  " />
-                        <Form.Check inline label=" יצירה  " />
-                        <Form.Check inline label=" משחקי דמיון  " />
-                        <Form.Check inline label=" משחקי קופסא  " />                 
+                            <Form.Check name="filter" value="1" onChange={this.onFilterChange} inline label=" צעצועי התפתחות " />
+                            <Form.Check name="filter" value="2" onChange={this.onFilterChange} inline label=" צעצועי הרכבה " />
+                            <Form.Check name="filter" value="3" onChange={this.onFilterChange} inline label=" כלי נגינה  " />
+                            <Form.Check name="filter" value="4" onChange={this.onFilterChange} inline label=" יצירה  " />
+                            <Form.Check name="filter" value="5" onChange={this.onFilterChange} inline label=" משחקי דמיון  " />
+                            <Form.Check name="filter" value="6" onChange={this.onFilterChange} inline label=" משחקי קופסא  " />                 
                     </Form.Group>
                     
                     <Form.Group>
