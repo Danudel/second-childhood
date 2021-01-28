@@ -5,6 +5,7 @@ import './DashboardPage.css';
 import { Button, Row, Jumbotron, Modal, Form } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import {  Card, Col } from 'react-bootstrap';
+import ToyModal from '../components/ToyModal';
 
 
 
@@ -20,12 +21,13 @@ class DashboardPage extends React.Component {
             toyImg: '',
             toyPrice: 0,
             isModalActive: false,
+            editingToy: undefined
         }
     }
 
 
-    openModal = () => {
-        this.setState({ isModalActive: true });
+    openModal = (toyObj) => {
+        this.setState({ isModalActive: true, editingToy: toyObj });
     }
 
     closeModal = () => {
@@ -43,8 +45,22 @@ class DashboardPage extends React.Component {
             id: this.props.allToys.length + 1
         }
         this.closeModal();
-        this.props.addToy(newToy);
-        console.log(newToy);
+        this.props.addToy(newToy);   
+    }
+
+// edit toy- find the element with the same id- and change it
+    handleEditToy =(toy)=>{
+        const editedToy ={
+            name: toy.toyName,
+            category: toy.toyCategory,
+            img: toy.toyImg,
+            desc: toy.toyDesc,
+            price: toy.toyPrice,
+            userId: this.props.activeUser.id,
+            id: toy.toyId
+    }
+        this.closeModal();
+        this.props.editToy(editedToy);   
     }
 
     render() {
@@ -65,7 +81,7 @@ class DashboardPage extends React.Component {
                             <Card.Title>{toy.name}</Card.Title>
                             <Card.Img className="toyImg" variant="top" src={toy.img} alt={toy.name} />
                         <Card.Text>מחיר: {toy.price} ש"ח</Card.Text>
-                        <Button className="align-self-center" variant="outline-dark" >עריכה</Button>
+                        <Button onClick={()=> this.openModal(toy)} className="align-self-center" variant="outline-dark" >עריכה</Button>
                 </Card>
             </Col>
             );
@@ -83,61 +99,9 @@ class DashboardPage extends React.Component {
                     {userToys}
                 </Row>
 
-                <Modal style={{textAlign: "right"}} show={this.state.isModalActive} onHide={() => { }}>
-                    <Modal.Header closeButton onClick={this.closeModal}>
-                        <Modal.Title>הוספת פריט חדש למכירה</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <Form>
-
-                            <Form.Label>שם הצעצוע</Form.Label>
-                            <Form.Control required type="text"
-                                onChange={(event) => { this.setState({ toyName: event.target.value }) }}
-                                placeholder="" value={this.state.toyName} />
-
-                            <Form.Label>תיאור</Form.Label>
-                            <Form.Control required type="text"
-                                onChange={(event) => { this.setState({ toyDesc: event.target.value }) }}
-                                placeholder="" value={this.state.toyDesc} />
-
-                            <Form.Label>תמונה</Form.Label>
-                            <Form.Control required type="text"
-                                onChange={(event) => { this.setState({ toyImg: event.target.value }) }}
-                                placeholder="" value={this.state.toyImg} />
-
-                            <Form.Label>מחיר</Form.Label>
-                            <Form.Control required type="number"
-                                min="10" max="700" step="10"
-                                onChange={(event) => { this.setState({ toyPrice: event.target.value }) }}
-                                placeholder="" value={this.state.toyPrice} />
-
-                            <Form.Label>קטגוריה</Form.Label>
-                            <Form.Control required  size="sm" as="select"
-                                onChange={(event) => { this.setState({ toyCategory: event.target.value }) }}
-                                placeholder="" value={this.state.toyCategory}>
-                                    
-                                <option value="1">צעצועי התפתחות</option>
-                                <option value="2">צעצועי הרכבה</option>
-                                <option value="3">כלי נגינה</option>
-                                <option value="4">יצירה </option>
-                                <option value="2">משחקי דמיון </option>
-                                <option value="2"> משחקי קופסא</option>
-                            </Form.Control>
-                            
-                            
-                            <Form.Check type="checkbox" label="סימון כנמכר" />
-                            <Button size="sm" variant="outline-dark">מחיקת פריט</Button>
-
-                        </Form>
-                    </Modal.Body>
-                    <Modal.Footer>
-
-                        <Button variant="outline-dark" onClick={this.handleNewToy}>
-                            שמירה
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
-
+                {(this.state.isModalActive )? 
+                     <ToyModal handleEditToy={this.handleEditToy} handleNewToy={this.handleNewToy} closeModal={this.closeModal} toy={this.state.editingToy} isModalActive={this.state.isModalActive} /> 
+                     : null}
 
             </div>
         )

@@ -15,10 +15,12 @@ class ToysPage extends React.Component {
         this.state = {
             redirectIndex: -1,
             allCategories: categoryJSON,
-            activeFilter: []
+            activeFilter: [],
+            priceFilter: 400
         }
 
         this.onFilterChange= this.onFilterChange.bind(this);
+        this.onPriceChange= this.onPriceChange.bind(this);
     }
     
     navigateToToy = (event) => {
@@ -26,6 +28,11 @@ class ToysPage extends React.Component {
             redirectIndex: event.currentTarget.getAttribute('data-index')
         })
     }
+
+    onPriceChange(event){
+        this.setState({priceFilter: event.target.value});
+    }
+
 
     onFilterChange(event) {
         const { activeFilter, allCategories } = this.state;
@@ -53,7 +60,7 @@ class ToysPage extends React.Component {
         for (let i=0; i<this.props.allToys.length; i++){
             console.log(this.state.activeFilter)
             if (this.state.activeFilter.length==0 || this.state.activeFilter.includes(this.props.allToys[i].category)){
-                console.log(1);
+                if(this.state.priceFilter > this.props.allToys[i].price){
                 const toysCard =
                     <Col sm={12} md={4} style={{ padding: '25px' }}>
                         <Card className="card" >
@@ -67,6 +74,7 @@ class ToysPage extends React.Component {
                     </Col>
                 toyContent.push(toysCard);
             }
+         }
                  
                 
             
@@ -96,8 +104,8 @@ class ToysPage extends React.Component {
                     </Form.Group>
                     
                     <Form.Group>
-                            <Form.Label>מחיר עד:</Form.Label>
-                            <Form.Control type="range" min="10" max="400" step="10" marks={true} />
+                            <Form.Label>מחיר עד: {this.state.priceFilter} </Form.Label>
+                            <Form.Control size="sm" onChange={this.onPriceChange} value={this.state.priceFilter} type="range" min="10" max="400" step="10" />
                   </Form.Group>
 
                     </Form> 

@@ -50,6 +50,20 @@ class App extends React.Component {
     ))
   } 
 
+  
+  editToy = (updatedToy) =>{
+      debugger;
+      const updatedToysList = this.state.allToys.map((toy) => {
+           if (toy.id != updatedToy.id) { 
+             return toy; } 
+     
+           else {
+              return updatedToy; }
+       }) 
+
+    this.setState({ allToys: updatedToysList })
+  }
+
   addUser = (newUser) => {
     this.setState({ allUsers: this.state.allUsers.concat(newUser) });
     localStorage.setItem('localUsers', JSON.stringify(
@@ -87,7 +101,7 @@ class App extends React.Component {
           </Route>
 
           <Route exact path="/dashboard">
-            <DashboardPage addToy={this.addToy} activeUser={this.state.activeUser} allToys={this.state.allToys}/>
+            <DashboardPage addToy={this.addToy} editToy={this.editToy} activeUser={this.state.activeUser} allToys={this.state.allToys}/>
           </Route>
 
           <Route exact path="/location">
