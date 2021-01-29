@@ -65,10 +65,17 @@ class ToysPage extends React.Component {
                     <Col sm={12} md={4} style={{ padding: '25px' }}>
                         <Card className="card" >
                             <Card.Img className="toyImg" variant="top" src={this.props.allToys[i].img} />
+                            {(this.props.allToys[i].sold === true) ? 
+                                <Card.Img className="soldImg" src="https://www.pngonly.com/wp-content/uploads/2017/05/Sold-Out-Clipart-PNG-Image-03.png" />
+                                : <div></div>}
+                            
                             <Card.Body>
                                 <Card.Title>{this.props.allToys[i].name}</Card.Title>
                                 <Card.Text>  מחיר: {this.props.allToys[i].price} ש"ח</Card.Text>
-                                <Button variant="outline-dark" data-index={i} onClick={this.navigateToToy} >לפרטים נוספים</Button>
+                                {(this.props.allToys[i].sold===true) ? 
+                                    <Button disabled className="align-self-center" variant="outline-dark" >נמכר</Button> 
+                                    : <Button variant="outline-dark" data-index={i} onClick={this.navigateToToy} >לפרטים נוספים</Button>}
+                                
                             </Card.Body>
                         </Card>
                     </Col>
