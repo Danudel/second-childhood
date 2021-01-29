@@ -19,6 +19,7 @@ class ToyModal extends React.Component {
             toyImg: (this.props.toy.id) ? this.props.toy.img : '',
             toyPrice: (this.props.toy.id) ? this.props.toy.price : 0,
             toyId: this.props.toy.id ? this.props.toy.id: null, 
+            toySold: (this.props.toy.id) ? this.props.toy.sold : false,
             isModalActive: false,
         }
     }
@@ -75,7 +76,7 @@ class ToyModal extends React.Component {
 
             {(this.props.toy.id) ?
                   <div>
-                     <Form.Check type="checkbox" label="סימון כנמכר" />
+                     <Form.Check onClick ={() => { this.setState({ toySold: true }) }} value={this.state.toySold} type="checkbox" label="סימון כנמכר" />
                      <Button size="sm" variant="outline-dark">מחיקת פריט</Button>
                      <Button size="sm" variant="outline-dark" onClick={()=> this.props.handleEditToy(this.state)}> עדכון </Button>
 

@@ -52,7 +52,6 @@ class App extends React.Component {
 
   
   editToy = (updatedToy) =>{
-      debugger;
       const updatedToysList = this.state.allToys.map((toy) => {
            if (toy.id != updatedToy.id) { 
              return toy; } 
@@ -62,6 +61,7 @@ class App extends React.Component {
        }) 
 
     this.setState({ allToys: updatedToysList })
+       console.log(this.state.allToys);
   }
 
   addUser = (newUser) => {

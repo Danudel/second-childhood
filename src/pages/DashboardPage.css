@@ -1,8 +1,17 @@
 .toyImg{
     height: 320px;
+    position: relative;
+
+}
+.soldImg{
+    padding-top: 20%;
+    padding-right: 12%;
+    width: 50%;
+    position:    absolute;
 
 }
 
 .cardStyle{
     margin-top: 20px;
+
 }

@@ -20,6 +20,7 @@ class DashboardPage extends React.Component {
             toyDesc: '',
             toyImg: '',
             toyPrice: 0,
+            toySold: false,
             isModalActive: false,
             editingToy: undefined
         }
@@ -39,28 +40,29 @@ class DashboardPage extends React.Component {
             name: this.state.toyName,
             category: this.state.toyCategory,
             img: this.state.toyImg,
-            desc: this.state.toyDesc,
+            sesc: this.state.toyDesc,
             price: this.state.toyPrice,
             userId: this.props.activeUser.id,
+            sold: false,
             id: this.props.allToys.length + 1
         }
         this.closeModal();
         this.props.addToy(newToy);   
     }
 
-// edit toy- find the element with the same id- and change it
     handleEditToy =(toy)=>{
         const editedToy ={
             name: toy.toyName,
             category: toy.toyCategory,
             img: toy.toyImg,
-            desc: toy.toyDesc,
+            sesc: toy.toyDesc,
             price: toy.toyPrice,
+            sold: toy.toySold,
             userId: this.props.activeUser.id,
             id: toy.toyId
     }
         this.closeModal();
-        this.props.editToy(editedToy);   
+        this.props.editToy(editedToy);  
     }
 
     render() {
@@ -79,9 +81,14 @@ class DashboardPage extends React.Component {
                   <Col lg={4} md={6} sm={12}>
                     <Card className="cardStyle">
                             <Card.Title>{toy.name}</Card.Title>
-                            <Card.Img className="toyImg" variant="top" src={toy.img} alt={toy.name} />
+                             <Card.Img className="toyImg" variant="top" src={toy.img} alt={toy.name} />
+                            {(toy.sold===true) ? 
+                            <Card.Img className="soldImg" src="https://www.pngonly.com/wp-content/uploads/2017/05/Sold-Out-Clipart-PNG-Image-03.png" /> 
+                            : <div></div>}
                         <Card.Text>מחיר: {toy.price} ש"ח</Card.Text>
-                        <Button onClick={()=> this.openModal(toy)} className="align-self-center" variant="outline-dark" >עריכה</Button>
+                        {(toy.sold === true) ? 
+                            <Button disabled className="align-self-center" variant="outline-dark" >עריכה</Button> 
+                        :  <Button onClick={() => this.openModal(toy)} className="align-self-center" variant="outline-dark" >עריכה</Button> }
                 </Card>
             </Col>
             );
