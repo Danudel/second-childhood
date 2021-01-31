@@ -26,8 +26,6 @@ class App extends React.Component {
     super(props);
 
      
-
-
     this.state = {
       //  activeUser: null,
 
@@ -35,7 +33,9 @@ class App extends React.Component {
         "id": 1,
         "fname": "דנה",
         "lname": "נודל",
-        "email": "danamula@gmail.com",
+        "email": "danudel@gmail.com",
+        "phone": "054-4449487",
+        "adress": "ירמיהו 11,תל אביב",
         "pwd": "123"
       },
       allToys: toysJSON,
@@ -64,12 +64,36 @@ class App extends React.Component {
        console.log(this.state.allToys);
   }
 
+
+ deleteToy =(ToyId) =>{
+    const updatedToysList = this.state.allToys.filter((toy, index) => toy.id !== ToyId);
+        this.setState({ allToys: updatedToysList });
+   }
+
+
   addUser = (newUser) => {
     this.setState({ allUsers: this.state.allUsers.concat(newUser) });
     localStorage.setItem('localUsers', JSON.stringify(
       this.state.allUsers.concat(newUser)
     ))
   } 
+
+  updateUser = (updatedUser) => {
+    const updatedUsersList = this.state.allUsers.map((user) => {
+      if (user.id != updatedUser.id) {
+        return user;
+      }
+
+      else {
+        return updatedUser;
+      }
+    })
+
+    this.setState({ allUsers: updatedUsersList });
+    console.log(this.state.allUsers);
+  }
+
+
 
   handleLogin = (userObj) => {
     this.setState({ activeUser: userObj })
@@ -97,15 +121,15 @@ class App extends React.Component {
           </Route>
 
           <Route exact path="/signup">
-            <SignupPage handleLogin={this.handleLogin} allUsers={usersJSON} addUser={this.addUser}/>
+            <SignupPage updateUser={this.updateUser} activeUser={this.state.activeUser} handleLogin={this.handleLogin} allUsers={usersJSON} addUser={this.addUser}/>
           </Route>
 
           <Route exact path="/dashboard">
-            <DashboardPage addToy={this.addToy} editToy={this.editToy} activeUser={this.state.activeUser} allToys={this.state.allToys}/>
+            <DashboardPage deleteToy={this.deleteToy} addToy={this.addToy} editToy={this.editToy} activeUser={this.state.activeUser} allToys={this.state.allToys}/>
           </Route>
 
           <Route exact path="/location">
-            <SearchByLocationPage />
+            <SearchByLocationPage allToys={this.state.allToys} />
           </Route>
 
           <Route exact path="/toys/:id">

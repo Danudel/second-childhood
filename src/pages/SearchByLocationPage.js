@@ -1,37 +1,59 @@
-import React from 'react';
+
+import React from "react";
+// import {
+//     withGoogleMap,
+//     withScriptjs,
+//     GoogleMap,
+//     Marker,
+//     InfoWindow
+// } from "react-google-maps";
+
+// // my API key      AIzaSyAG0qO95ddQGvIOVoeJClsmAHWBJjjmOpY
+
+
+
+// function Map() {
+    
+//     return (
+//         <GoogleMap
+//             defaultZoom={10}
+//             defaultCenter={{ lat: 32.085300, lng: 34.781769 }}
+//         >
+
+
+//         </GoogleMap>
+//     );
+// }
+
+// const MapWrapped = withScriptjs(withGoogleMap(Map));
 
 
 class SearchByLocationPage extends React.Component {
-    constructor(props){
-        super(props);
-    }
-//     this.initMap= this.initMap.bind(this);
+    // constructor(props){
+    //     super(props);
+    // }
 
-//      // Initialize and add the map
-//        initMap() {
-//     // The location of Uluru
-//     const uluru = { lat: -25.344, lng: 131.036 };
-//     // The map, centered at Uluru
-//     const map = new google.maps.Map(document.getElementById("map"), {
-//         zoom: 4,
-//         center: uluru,
-//     });
-//     // The marker, positioned at Uluru
-//     const marker = new google.maps.Marker({
-//         position: uluru,
-//         map: map,
-//     });
-// }
-
+    
 
 
     render() {
         return (
             <div>
                   <h1>חיפוש פריטים על-פי מיקום </h1>
-                  <div id="map"></div>
+                  <div id="map">
+                    {/* <MapWrapped
+
+                        googleMapURL={`{https://maps.googleapis.com/maps/api/staticmap?parametersAIzaSyAG0qO95ddQGvIOVoeJClsmAHWBJjjmOpY}`}
+                        loadingElement={<div style={{ height: `100%` }} />}
+                        containerElement={<div style={{ height: `100%` }} />}
+                        mapElement={<div style={{ height: `100%` }} />}
+                    /> */}
+                  </div>
             </div>
         )
     }
 }
+
+
+
 export default SearchByLocationPage;

@@ -2,7 +2,7 @@ import React from 'react';
 import './DashboardPage.css';
 
 
-import { Button, Row, Jumbotron, Modal, Form } from 'react-bootstrap';
+import { Button, Row, Jumbotron} from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import {  Card, Col } from 'react-bootstrap';
 import ToyModal from '../components/ToyModal';
@@ -33,6 +33,7 @@ class DashboardPage extends React.Component {
 
     closeModal = () => {
         this.setState({ isModalActive: false });
+        console.log(this.props.allToys);
     }
 
     handleNewToy = () => {
@@ -64,6 +65,14 @@ class DashboardPage extends React.Component {
         this.closeModal();
         this.props.editToy(editedToy);  
     }
+
+
+    handleDeleteToy=(toyId)=>{
+        this.closeModal();
+        this.props.deleteToy(toyId);
+    }
+
+
 
     render() {
         if (!this.props.activeUser) {
@@ -107,7 +116,7 @@ class DashboardPage extends React.Component {
                 </Row>
 
                 {(this.state.isModalActive )? 
-                     <ToyModal handleEditToy={this.handleEditToy} handleNewToy={this.handleNewToy} closeModal={this.closeModal} toy={this.state.editingToy} isModalActive={this.state.isModalActive} /> 
+                    <ToyModal handleDeleteToy={this.handleDeleteToy} handleEditToy={this.handleEditToy} handleNewToy={this.handleNewToy} closeModal={this.closeModal} toy={this.state.editingToy} isModalActive={this.state.isModalActive} /> 
                      : null}
 
             </div>

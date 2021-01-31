@@ -1,21 +1,32 @@
 [
     {
-        "id": 1,
-        "fname": "דנה",
-        "lname": "נודל",
-        "email": "danudel@gmail.com",
+        "id": 0,
+        "fname": "עמיר",
+        "lname": "שורוש",
+        "email": "ramzi@gmail.com",
         "phone": "054-4449487",
-        "adress": "השקדים 11, סביון",
+        "adress": "אבן גבירול 123, תל אביב",
         "pwd": "123"
     },
-    
+      {
+            "id": 1,
+            "fname": "דנה",
+            "lname": "נודל",
+            "email": "danudel@gmail.com",
+            "phone": "054-4449487",
+            "adress": "ירמיהו 11,תל אביב",
+            "pwd": "123"
+},
+
     {
         "id": 2,
         "fname": "זוהר",
         "lname": "זמיר",
         "email": "zohar@zamir.com",
         "phone": "052-4449487",
-        "adress": "שנהב 78, נווה מונוסון",
+        "adress": "דיזנגוף 78, תל אביב",
         "pwd": "123"
     }
+    
+
 ]

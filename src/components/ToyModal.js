@@ -77,7 +77,7 @@ class ToyModal extends React.Component {
             {(this.props.toy.id) ?
                   <div>
                      <Form.Check onClick ={() => { this.setState({ toySold: true }) }} value={this.state.toySold} type="checkbox" label="סימון כנמכר" />
-                     <Button size="sm" variant="outline-dark">מחיקת פריט</Button>
+                      <Button size="sm" variant="outline-dark" onClick={() => this.props.handleDeleteToy(this.state.toyId)}>מחיקת פריט</Button>
                      <Button size="sm" variant="outline-dark" onClick={()=> this.props.handleEditToy(this.state)}> עדכון </Button>
 
                   </div>

@@ -35,8 +35,7 @@ class ToysPage extends React.Component {
 
 
     onFilterChange(event) {
-        const { activeFilter, allCategories } = this.state;
-        const toysList = this.props.allToys;
+        const { activeFilter } = this.state;
         const value = parseInt(event.target.value)
         if (activeFilter.includes(value)){
             this.setState({ activeFilter: activeFilter.filter((item)=> {
