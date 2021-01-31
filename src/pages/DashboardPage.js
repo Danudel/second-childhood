@@ -21,7 +21,7 @@ class DashboardPage extends React.Component {
             toyImg: '',
             toyPrice: 0,
             toySold: false,
-            isModalActive: false,
+            isModalActive: (this.props.newItem) ? true : false,
             editingToy: undefined
         }
     }
@@ -33,7 +33,6 @@ class DashboardPage extends React.Component {
 
     closeModal = () => {
         this.setState({ isModalActive: false });
-        console.log(this.props.allToys);
     }
 
     handleNewToy = (toy) => {
@@ -83,9 +82,6 @@ class DashboardPage extends React.Component {
             return this.props.activeUser.id === recipe.userId;
         })
 
-        if (this.props.newItem){
-            this.setState({ isModalActive: true});
-        }
        
        
         const userToys = filteredToys.map((toy) => {

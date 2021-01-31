@@ -13,14 +13,22 @@ class ToyModal extends React.Component {
         super(props);
         
         this.state = {
-            toyName: (this.props.toy.id) ? this.props.toy.name : '',
-            toyCategory: (this.props.toy.id) ? this.props.toy.category: '',
-            toyDesc: (this.props.toy.id) ? this.props.toy.sesc : '',
-            toyImg: (this.props.toy.id) ? this.props.toy.img : '',
-            toyPrice: (this.props.toy.id) ? this.props.toy.price : 0,
-            toyId: (this.props.toy.id) ? this.props.toy.id: null, 
-            toySold: (this.props.toy.id) ? this.props.toy.sold : false,
-            isModalActive: false,
+            // toyName: (this.props.toy.id) ? this.props.toy.name : '',
+            // toyCategory: (this.props.toy.id) ? this.props.toy.category: '',
+            // toyDesc: (this.props.toy.id) ? this.props.toy.sesc : '',
+            // toyImg: (this.props.toy.id) ? this.props.toy.img : '',
+            // toyPrice: (this.props.toy.id) ? this.props.toy.price : 0,
+            // toyId: (this.props.toy.id) ? this.props.toy.id: null, 
+            // toySold: (this.props.toy.id) ? this.props.toy.sold : false,
+            // isModalActive: false,
+            toyName: (this.props.toy && this.props.toy.id) ? this.props.toy.name : '',
+            toyCategory: (this.props.toy && this.props.toy.id) ? this.props.toy.category : '',
+            toyDesc: (this.props.toy && this.props.toy.id) ? this.props.toy.sesc : '',
+            toyImg: (this.props.toy && this.props.toy.id) ? this.props.toy.img : '',
+            toyPrice: (this.props.toy && this.props.toy.id) ? this.props.toy.price : 0,
+            toyId: (this.props.toy && this.props.toy.id) ? this.props.toy.id : null,
+            toySold: (this.props.toy && this.props.toy.id) ? this.props.toy.sold : false,
+            isModalActive: (this.props.toy) ? true : false,
         }
     }
 
@@ -74,7 +82,7 @@ class ToyModal extends React.Component {
             </Modal.Body>
             <Modal.Footer>
 
-            {(this.props.toy.id) ?
+                    {(this.props.toy && this.props.toy.id  ) ?
                   <div>
                      <Form.Check onClick ={() => { this.setState({ toySold: true }) }} value={this.state.toySold} type="checkbox" label="סימון כנמכר" />
                       <Button size="sm" variant="outline-dark" onClick={() => this.props.handleDeleteToy(this.state.toyId)}>מחיקת פריט</Button>
