@@ -36,13 +36,13 @@ class DashboardPage extends React.Component {
         console.log(this.props.allToys);
     }
 
-    handleNewToy = () => {
+    handleNewToy = (toy) => {
         const newToy = {
-            name: this.state.toyName,
-            category: this.state.toyCategory,
-            img: this.state.toyImg,
-            sesc: this.state.toyDesc,
-            price: this.state.toyPrice,
+            name: toy.toyName,
+            category: toy.toyCategory,
+            img: toy.toyImg,
+            sesc: toy.toyDesc,
+            price: toy.toyPrice,
             userId: this.props.activeUser.id,
             sold: false,
             id: this.props.allToys.length + 1
@@ -83,6 +83,9 @@ class DashboardPage extends React.Component {
             return this.props.activeUser.id === recipe.userId;
         })
 
+        if (this.props.newItem){
+            this.setState({ isModalActive: true});
+        }
        
        
         const userToys = filteredToys.map((toy) => {
@@ -115,7 +118,7 @@ class DashboardPage extends React.Component {
                     {userToys}
                 </Row>
 
-                {(this.state.isModalActive )? 
+                {(this.state.isModalActive)? 
                     <ToyModal handleDeleteToy={this.handleDeleteToy} handleEditToy={this.handleEditToy} handleNewToy={this.handleNewToy} closeModal={this.closeModal} toy={this.state.editingToy} isModalActive={this.state.isModalActive} /> 
                      : null}
 

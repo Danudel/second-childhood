@@ -18,7 +18,7 @@ class ToyModal extends React.Component {
             toyDesc: (this.props.toy.id) ? this.props.toy.sesc : '',
             toyImg: (this.props.toy.id) ? this.props.toy.img : '',
             toyPrice: (this.props.toy.id) ? this.props.toy.price : 0,
-            toyId: this.props.toy.id ? this.props.toy.id: null, 
+            toyId: (this.props.toy.id) ? this.props.toy.id: null, 
             toySold: (this.props.toy.id) ? this.props.toy.sold : false,
             isModalActive: false,
         }
@@ -66,8 +66,8 @@ class ToyModal extends React.Component {
                         <option value="2">צעצועי הרכבה</option>
                         <option value="3">כלי נגינה</option>
                         <option value="4">יצירה </option>
-                        <option value="2">משחקי דמיון </option>
-                        <option value="2"> משחקי קופסא</option>
+                        <option value="5">משחקי דמיון </option>
+                        <option value="6"> משחקי קופסא</option>
                     </Form.Control>
 
                 </Form>
@@ -81,7 +81,7 @@ class ToyModal extends React.Component {
                      <Button size="sm" variant="outline-dark" onClick={()=> this.props.handleEditToy(this.state)}> עדכון </Button>
 
                   </div>
-           : <Button variant="outline-dark" onClick={this.props.handleNewToy}> שמירה </Button>
+                        : <Button variant="outline-dark" onClick={() => this.props.handleNewToy(this.state)}> שמירה </Button>
            
            }
 

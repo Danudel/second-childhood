@@ -73,12 +73,15 @@ class App extends React.Component {
 
   addUser = (newUser) => {
     this.setState({ allUsers: this.state.allUsers.concat(newUser) });
+    this.setState({ activeUser: newUser });
+
     localStorage.setItem('localUsers', JSON.stringify(
       this.state.allUsers.concat(newUser)
     ))
   } 
 
   updateUser = (updatedUser) => {
+    debugger;
     const updatedUsersList = this.state.allUsers.map((user) => {
       if (user.id != updatedUser.id) {
         return user;
@@ -90,6 +93,7 @@ class App extends React.Component {
     })
 
     this.setState({ allUsers: updatedUsersList });
+    this.setState({activeUser: updatedUser});
     console.log(this.state.allUsers);
   }
 
@@ -105,7 +109,7 @@ class App extends React.Component {
   render() {
   return (
     <HashRouter>
-      <Route exact path={['/', '/toys', '/dashboard', '/location', '/signup', "/toys/:id"]}>
+      <Route exact path={['/', '/toys', '/dashboard', '/location', '/signup', '/dashboard/new', "/toys/:id"]}>
         <AppNavBar handleLogout={this.handleLogout} activeUser={this.state.activeUser}/>
       </Route>
 
@@ -126,6 +130,10 @@ class App extends React.Component {
 
           <Route exact path="/dashboard">
             <DashboardPage deleteToy={this.deleteToy} addToy={this.addToy} editToy={this.editToy} activeUser={this.state.activeUser} allToys={this.state.allToys}/>
+          </Route>
+
+          <Route exact path="/dashboard/new">
+            <DashboardPage newItem={true} deleteToy={this.deleteToy} addToy={this.addToy} editToy={this.editToy} activeUser={this.state.activeUser} allToys={this.state.allToys} />
           </Route>
 
           <Route exact path="/location">
