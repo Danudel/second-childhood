@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/%7Bsecond-childhood%7D/static/css/main.34a7f265.chunk.css",
+    "main.js": "/%7Bsecond-childhood%7D/static/js/main.9ed2ed3a.chunk.js",
+    "main.js.map": "/%7Bsecond-childhood%7D/static/js/main.9ed2ed3a.chunk.js.map",
+    "runtime-main.js": "/%7Bsecond-childhood%7D/static/js/runtime-main.4f24ccf7.js",
+    "runtime-main.js.map": "/%7Bsecond-childhood%7D/static/js/runtime-main.4f24ccf7.js.map",
+    "static/css/2.150d169a.chunk.css": "/%7Bsecond-childhood%7D/static/css/2.150d169a.chunk.css",
+    "static/js/2.d85c0b83.chunk.js": "/%7Bsecond-childhood%7D/static/js/2.d85c0b83.chunk.js",
+    "static/js/2.d85c0b83.chunk.js.map": "/%7Bsecond-childhood%7D/static/js/2.d85c0b83.chunk.js.map",
+    "static/js/3.7510e93f.chunk.js": "/%7Bsecond-childhood%7D/static/js/3.7510e93f.chunk.js",
+    "static/js/3.7510e93f.chunk.js.map": "/%7Bsecond-childhood%7D/static/js/3.7510e93f.chunk.js.map",
+    "index.html": "/%7Bsecond-childhood%7D/index.html",
+    "static/css/2.150d169a.chunk.css.map": "/%7Bsecond-childhood%7D/static/css/2.150d169a.chunk.css.map",
+    "static/css/main.34a7f265.chunk.css.map": "/%7Bsecond-childhood%7D/static/css/main.34a7f265.chunk.css.map",
+    "static/js/2.d85c0b83.chunk.js.LICENSE.txt": "/%7Bsecond-childhood%7D/static/js/2.d85c0b83.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4f24ccf7.js",
+    "static/css/2.150d169a.chunk.css",
+    "static/js/2.d85c0b83.chunk.js",
+    "static/css/main.34a7f265.chunk.css",
+    "static/js/main.9ed2ed3a.chunk.js"
+  ]
+}
