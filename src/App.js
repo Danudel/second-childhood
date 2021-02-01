@@ -27,17 +27,17 @@ class App extends React.Component {
 
      
     this.state = {
-      //  activeUser: null,
+       activeUser: null,
 
-      activeUser: {
-        "id": 1,
-        "fname": "דנה",
-        "lname": "נודל",
-        "email": "danudel@gmail.com",
-        "phone": "054-4449487",
-        "adress": "ירמיהו 11,תל אביב",
-        "pwd": "123"
-      },
+      // activeUser: {
+      //   "id": 1,
+      //   "fname": "דנה",
+      //   "lname": "נודל",
+      //   "email": "danudel@gmail.com",
+      //   "phone": "054-4449487",
+      //   "adress": "ירמיהו 11,תל אביב",
+      //   "pwd": "123"
+      // },
       allToys: toysJSON,
       allUsers: usersJSON
     }

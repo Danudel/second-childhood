@@ -20,17 +20,25 @@ class LoginPage extends React.Component {
     validateLogin = () => {
         const users= this.props.allUsers;
         for (let i = 0; i < users.length; i++) {
-            if (users[i].pwd === this.state.pwd && users[i].email === this.state.email) {
+            if ( users[i].email === this.state.email) {
+                if (users[i].pwd === this.state.pwd){
                 this.props.handleLogin(users[i]);
                 window.location.href = '/#/dashboard'
                 return;
                 // We will login the user
                 // return the found user
+                }
+                else{
+                    alert('אי-מייל או סיסמא שגויים. נא לנסות שוב');
+                    return;
+                }
             }
-
-            alert('אי-מייל או סיסמא שגויים. נא לנסות שוב');
-            // alert that the user does not exist
+          
         }
+        alert('אי-מייל או סיסמא שגויים. נא לנסות שוב');
+        return;
+          // alert that the user does not exist
+
     }
     render() {
         // Steps to login
